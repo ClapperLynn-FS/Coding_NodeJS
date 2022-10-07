@@ -37,10 +37,18 @@ router.put("/id:",(req,res)=>{
     const id=req.params.id;
 });
 //Delete Method
-const id=req.params.id;
-router.delete('/:id',(req,res)=>{
 
+router.delete('/:id',(req,res)=>{
+    const id=req.params.id;
+    message: "${id}  deleted"
 });
 //Post Method
-
+router.post('/users',(req,res)=>{
+    const user ={
+    id: ++userIdCounter,
+    name: req.body.name
+    }
+    users.push(user)
+    res.status(201).json(user)
+});
 module.exports= router;
